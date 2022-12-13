@@ -26,7 +26,7 @@ class Article
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
-    #[ORM\Column(type: Types::BLOB, nullable: true)]
+    #[ORM\Column(type: Types::STRING, nullable: true)]
     private $photo = null;
 
     public function getId(): ?int

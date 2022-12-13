@@ -21,7 +21,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/article/add/{slug}', name: 'app_article_add', methods: ['GET', 'POST'])]
+    #[Route('/article/add', name: 'app_article_add', methods: ['GET', 'POST'])]
     public function new(Request $request, ArticleRepository $articleRepository): Response
     {
         $article = new Article();
@@ -40,7 +40,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/edit/{slug}', name: 'app_article_show', methods: ['GET'])]
+    #[Route('article/edit/{slug}', name: 'app_article_show', methods: ['GET'])]
     public function show(Article $article): Response
     {
         return $this->render('article/show.html.twig', [
@@ -48,7 +48,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/update/{slug}', name: 'app_article_edit', methods: ['GET', 'POST'])]
+    #[Route('article/update/{slug}', name: 'app_article_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Article $article, ArticleRepository $articleRepository): Response
     {
         $form = $this->createForm(ArticleType::class, $article);
