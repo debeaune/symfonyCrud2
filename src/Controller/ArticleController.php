@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ArticleController extends AbstractController
 {
-    #[Route('/articles', name: 'app_article_index', methods: ['GET'])]
+    #[Route('/', name: 'app_article_index', methods: ['GET'])]
     public function index(ArticleRepository $articleRepository): Response
     {
         return $this->render('article/index.html.twig', [
@@ -44,7 +44,7 @@ class ArticleController extends AbstractController
     public function show(Article $article): Response
     {
         return $this->render('article/show.html.twig', [
-            'article' => $article,
+            'article' => $article
         ]);
     }
 

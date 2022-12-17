@@ -21,11 +21,12 @@ class AppFixtures extends Fixture
     {
         for($i=0; $i<=10; $i++){
             $article = new Article();
-            $article->setSlug($this->faker->slug)
+            $title = $this->faker->word(3,true);
+            $article->setTitle($title)
+                    ->setSlug(str_replace(' ','-',$title))
                     ->setIntroduction($this->faker->sentence(1))
-                    ->setContent($this->faker->paragraphs())
-                    ->setPhoto($this->faker->image(null,360,360));
-
+                    ->setContent($this->faker->paragraphs(2,true))
+                    ->setPhoto($this->faker->imageUrl(360,360,'animals',true));
             $manager->persist($article);
         }
 

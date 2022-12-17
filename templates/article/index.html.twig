@@ -8,7 +8,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Title</th>
                 <th>Slug</th>
                 <th>Introduction</th>
@@ -20,16 +19,19 @@
         <tbody>
         {% for article in articles %}
             <tr>
-                <td>{{ article.id }}</td>
                 <td>{{ article.title }}</td>
                 <td>{{ article.slug }}</td>
                 <td>{{ article.introduction }}</td>
-                <td>{{ article.content }}</td>
-                <td>{{ article.photo }}</td>
                 <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">Voir</a>
-                    <a href="{{ path('app_article_edit', {'id': article.id}) }}">Editer</a>
-                    <a href="{{ path('app_article_delete', {'id': article.id}) }}">Supprimer</a>
+                    {{ article.content|slice(1,30)}}...
+                </td>
+                <td>
+                    <img src="{{ article.photo}}" width="50" height="50"/> 
+                </td>
+                <td>
+                    <a href="{{ path('app_article_show', {'slug': article.slug}) }}">Voir</a>
+                    <a href="{{ path('app_article_edit', {'slug': article.slug}) }}">Editer</a>
+                    <a href="{{ path('app_article_delete', {'slug': article.slug}) }}">Supprimer</a>
                 </td>
             </tr>
         {% else %}

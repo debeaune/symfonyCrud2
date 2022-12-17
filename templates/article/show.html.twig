@@ -3,40 +3,18 @@
 {% block title %}Article{% endblock %}
 
 {% block body %}
-    <h1>Article</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ article.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ article.title }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ article.slug }}</td>
-            </tr>
-            <tr>
-                <th>Introduction</th>
-                <td>{{ article.introduction }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>{{ article.content }}</td>
-            </tr>
-            <tr>
-                <th>Photo</th>
-                <td>{{ article.photo }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_article_index') }}">Retour à la liste</a>
-
-    <a href="{{ path('app_article_edit', {'id': article.id}) }}">Editer</a>
-
-    {{ include('article/_delete_form.html.twig') }}
+    <div class="header d-flex justify-content-between">
+        <h1>{{ article.title}}</h1>
+        <a href="{{ path('app_article_index') }}" class="btn btn-sm btn-outline-primary" margin-left="60%" height="25%">Retour à la liste</a>
+        <a href="{{ path('app_article_edit', {'slug': article.slug}) }}" class="btn btn-sm btn-outline-primary" margin-left="60%" height="25%">Editer</a>
+        {{ include('article/_delete_form.html.twig') }}
+    </div>
+    <div class="column1 d-flex flex-column" width:"50%">
+        <img src="{{ article.photo}}" width="250" height="250"/> 
+        <br>
+        <p class="text-justify">{{article.content}}</p>
+    </div>
+    <div class="column2 d-flex flex-column" width:"50%">
+    </div>
+    
 {% endblock %}
