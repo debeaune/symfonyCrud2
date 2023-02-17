@@ -1,5 +1,5 @@
 <form method="post" action="{{ path('app_article_delete', {'slug': article.slug}) }}" onsubmit="return confirm('Etes-vous sûr de vouloir
-supprimer cet article?');" class="d-inline-flex">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.slug) }}">
-    <button class="btn btn-danger" margin-left="60%" height="25%">Supprimer</button>
+supprimer cet article?');" class="d-inline-flex" style="height:25%">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.slug) }} ">
+    <button class="btn btn-sm btn-outline-danger">Supprimer</button>
 </form>

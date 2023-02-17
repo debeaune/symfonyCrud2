@@ -63,4 +63,14 @@ class ArticleRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function getArticles(string $slug)
+    {
+        return $this->createQueryBuilder('a')
+        ->andWhere('a.slug != :slug')
+        ->setParameter('slug',$slug)
+        ->setMaxResults(3)
+        ->getQuery()
+        ->getResult();
+    }
 }
