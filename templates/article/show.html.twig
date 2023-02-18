@@ -5,9 +5,9 @@
 {% block body %}
     <div class="container-fluid">
         <div class="row mt-5 mb-3" >
-            <div class="col-7">
+            <div class="col-12 col-md-7">
                 <h2>{{ article.title }}</h2>
-                <div class="card mb-3">
+                <div class="mb-3">
                         <img class="card-img-top1" src="{{ article.photo }}" alt="Card image cap">
                         <div class="card-body">
                             <p class="card-text">{{article.content|striptags|slice(0,1000)}}</p>
@@ -16,7 +16,7 @@
                         </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4 offset-md-1">
                 <h3>Consulter d'autres articles</h3>
                 {% for article in articleListe %}
                     <div class="card mb-3">
